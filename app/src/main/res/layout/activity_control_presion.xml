@@ -13,23 +13,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#7B2FBE"
+        android:background="#007B2FBE"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🫀"
-            android:textSize="20sp" />
-
-        <TextView
+            style="@style/TitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  Registro de Presión Arterial"
-            android:textColor="#FFFFFF"
+            android:textColor="#3F51B5"
             android:textSize="17sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -84,9 +79,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:timePickerMode="spinner"
+                android:layout_marginBottom="8dp"
+                android:numbersSelectorColor="#090808"
                 android:numbersTextColor="#212121"
-                android:layout_marginBottom="8dp" />
+                android:timePickerMode="spinner" />
 
             <!-- Valores de la medición -->
             <TextView

@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F0F0F5"
+    android:background="#FFFFFF"
     tools:context=".ControlPresion">
 
     <!-- Toolbar morado -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="56dp"
         android:background="#7B2FBE"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -23,353 +23,272 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="🫀"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  Registro de Presión Arterial"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
 
-            <!-- Tarjeta de datos de medición -->
-            <androidx.cardview.widget.CardView
+            <!-- Botón seleccionar fecha -->
+            <Button
+                android:id="@+id/btnFecha"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Seleccionar fecha"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#7B2FBE"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Fecha seleccionada -->
+            <TextView
+                android:id="@+id/txtFecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF"
+                android:text="Fecha no seleccionada"
+                android:textColor="#212121"
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Hora de la medición -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora de la medición"
+                android:textColor="#212121"
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:timePickerMode="spinner"
+                android:numbersTextColor="#212121"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Valores de la medición -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valores de la medición"
+                android:textColor="#212121"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <!-- Sistólica -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sistólica"
+                        android:textColor="#212121"
+                        android:textSize="13sp" />
+
+                    <NumberPicker
+                        android:id="@+id/npSistolica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- Diastólica -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diastólica"
+                        android:textColor="#212121"
+                        android:textSize="13sp" />
+
+                    <NumberPicker
+                        android:id="@+id/npDiastolica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- Pulso -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pulso"
+                        android:textColor="#212121"
+                        android:textSize="13sp" />
+
+                    <NumberPicker
+                        android:id="@+id/npPulso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Brazo utilizado -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brazo utilizado"
+                android:textColor="#212121"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <RadioGroup
+                android:id="@+id/rgBrazo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginBottom="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/rbIzquierdo"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:text="Brazo izquierdo"
+                    android:textColor="#212121"
+                    android:buttonTint="#7B2FBE" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Datos de la Medición"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#212121"
-                        android:layout_marginBottom="14dp" />
-
-                    <!-- Fila: Fecha y Hora -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="16dp">
-
-                        <Button
-                            android:id="@+id/btnFecha"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="📅 Seleccionar Fecha:\n--/--/----"
-                            android:textSize="12sp"
-                            android:textColor="#424242"
-                            android:backgroundTint="#F3E5F5"
-                            app:cornerRadius="8dp"
-                            android:layout_marginEnd="12dp" />
-
-                        <LinearLayout
-                            android:id="@+id/layoutHora"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:background="#F3E5F5"
-                            android:padding="10dp"
-                            android:clickable="true"
-                            android:focusable="true">
-
-                            <TextView
-                                android:id="@+id/txtHoraDisplay"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00:00"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:textColor="#7B2FBE" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="(24h)"
-                                android:textSize="11sp"
-                                android:textColor="#9E9E9E"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Fila: NumberPickers (Sistólica, Diastólica, Pulso) -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="16dp">
-
-                        <!-- Sistólica -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="SISTÓLICA"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:textColor="#7B2FBE"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="(mmHg)"
-                                android:textSize="10sp"
-                                android:textColor="#9E9E9E"
-                                android:gravity="center" />
-
-                            <NumberPicker
-                                android:id="@+id/npSistolica"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-                        <!-- Diastólica -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="DIASTÓLICA"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:textColor="#7B2FBE"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="(mmHg)"
-                                android:textSize="10sp"
-                                android:textColor="#9E9E9E"
-                                android:gravity="center" />
-
-                            <NumberPicker
-                                android:id="@+id/npDiastolica"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-                        <!-- Pulso -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="PULSO"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:textColor="#7B2FBE"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="(BPM)"
-                                android:textSize="10sp"
-                                android:textColor="#9E9E9E"
-                                android:gravity="center" />
-
-                            <NumberPicker
-                                android:id="@+id/npPulso"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Separador -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginBottom="12dp" />
-
-                    <!-- Brazo utilizado -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Brazo Utilizado:"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#212121"
-                        android:layout_marginBottom="8dp" />
-
-                    <RadioGroup
-                        android:id="@+id/rgBrazo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/rbIzquierdo"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Brazo Izquierdo"
-                            android:textColor="#424242"
-                            android:buttonTint="#7B2FBE" />
-
-                        <RadioButton
-                            android:id="@+id/rbDerecho"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Brazo Derecho"
-                            android:textColor="#424242"
-                            android:buttonTint="#7B2FBE" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                <RadioButton
+                    android:id="@+id/rbDerecho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brazo derecho"
+                    android:textColor="#212121"
+                    android:buttonTint="#7B2FBE" />
+            </RadioGroup>
 
             <!-- Botón Analizar -->
             <Button
                 android:id="@+id/btnAnalizar"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="ANALIZAR MEDICIÓN"
-                android:textSize="15sp"
+                android:layout_height="50dp"
+                android:text="Analizar medición"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#4CAF50"
-                app:cornerRadius="12dp"
+                android:backgroundTint="#7B2FBE"
+                app:cornerRadius="8dp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Tarjeta Resumen y Análisis (oculta al inicio) -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardResumen"
+            <!-- Resumen de la medición -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF"
+                android:text="Resumen de la medición"
+                android:textColor="#212121"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Resultado texto -->
+            <TextView
+                android:id="@+id/txtResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#424242"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Fila clasificación (oculta al inicio) -->
+            <LinearLayout
+                android:id="@+id/layoutClasificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp"
                 android:visibility="gone">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:text="Clasificación: "
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="RESUMEN Y ANÁLISIS"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#212121"
-                        android:layout_marginBottom="10dp" />
+                <TextView
+                    android:id="@+id/txtClasificacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp" />
+            </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/txtResultado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="#424242"
-                        android:lineSpacingExtra="4dp"
-                        android:layout_marginBottom="12dp" />
+            <!-- Consejo de salud (oculto al inicio) -->
+            <LinearLayout
+                android:id="@+id/layoutConsejo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#F3E5F5"
+                android:padding="10dp"
+                android:visibility="gone">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginBottom="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ℹ️  "
+                    android:textSize="16sp" />
 
-                    <!-- Fila clasificación -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="CLASIFICACIÓN:"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="#212121"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:id="@+id/txtClasificacion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"
-                            android:paddingHorizontal="14dp"
-                            android:paddingVertical="5dp" />
-                    </LinearLayout>
-
-                    <!-- Consejo de salud -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:background="#F9F9F9"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ℹ️"
-                            android:textSize="18sp"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:id="@+id/txtConsejo"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="13sp"
-                            android:textColor="#616161" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/txtConsejo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="13sp"
+                    android:textColor="#616161" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

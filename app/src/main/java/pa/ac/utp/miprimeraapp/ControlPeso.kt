@@ -1,5 +1,6 @@
 package pa.ac.utp.miprimeraapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import android.widget.Toast
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
-
 import androidx.core.view.WindowInsetsCompat
 
 class ControlPeso : AppCompatActivity() {
@@ -42,6 +42,11 @@ class ControlPeso : AppCompatActivity() {
         swEstatura.setOnCheckedChangeListener { _, isChecked ->
             etEstatura.hint = if (isChecked) "Estatura (in)" else "Estatura (cm)"
             etEstatura.text.clear()
+        }
+
+        val btnVerHistorial = findViewById<Button>(R.id.btnVerHistorial)
+        btnVerHistorial.setOnClickListener {
+            startActivity(Intent(this, HistorialPesoActivity::class.java))
         }
 
         btnCalcular.setOnClickListener {

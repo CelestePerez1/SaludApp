@@ -245,12 +245,12 @@
             android:id="@+id/btnVerHistorial"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#1A4375"
             android:text="Ver Historial de Peso"
-            android:textStyle="bold"
-            android:backgroundTint="#7B2FBE"
             android:textColor="#FFFFFF"
-            app:cornerRadius="12dp"
-            android:layout_marginTop="16dp" />
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 </ScrollView>

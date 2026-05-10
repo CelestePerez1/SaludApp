@@ -12,16 +12,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#7B2FBE"
-        android:orientation="horizontal"
+        android:background="#1A4375"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="⚖️"
             android:textSize="20sp" />
 
         <TextView
